@@ -1,4 +1,104 @@
-body{
-    font-family: 'Work Sans';
-    color: red;
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+article,
+aside,
+dialog,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+    display: block;
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+    content: '';
+}
+
+blockquote,
+q {
+    quotes: """";
+}
+
+*:focus {
+    outline: 0;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+img {
+    vertical-align: middle;
+    max-width: 100%;
+}
+
+ul,
+li,
+ul li,
+ul ol {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+ul.list-default {
+    list-style: disc;
+    padding-left: 17px;
+
+    li {
+        list-style: disc;
+    }
+}
+
+ol.list-default {
+    list-style: decimal;
+    padding-left: 17px;
+
+    li {
+        list-style: decimal;
+    }
+}
+
+body {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: $body_font;
+    font-size: 24px;
+    line-height: 1.15;
+
+    @include sm {
+        font-size: 16px;
+    }
+}
+
+.ham-icon {
+    font-size: 0;
+    line-height: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1920px;
+    padding-left: 135px;
+    padding-right: 135px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include xl {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
 }
