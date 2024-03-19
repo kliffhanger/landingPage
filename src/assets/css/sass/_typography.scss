@@ -1,0 +1,36 @@
+.btn {
+    display: inline-flex;
+    vertical-align: top;
+    align-items: center;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: $gray-400;
+    transition: 0.3s all ease;
+
+    &-outline-black {
+        border: 1px solid $black;
+
+        &:hover {
+            color: $white;
+            background-color: $black;
+        }
+    }
+
+    &--arrow-icon {
+        svg {
+            margin-left: 15px;
+            transition: 0.3s transform ease;
+
+            @include sm {
+                margin-left: 28px;
+            }
+        }
+
+        &:hover {
+            svg {
+                transform: translateX(3px);
+            }
+        }
+    }
+}
