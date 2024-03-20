@@ -11,8 +11,8 @@ const  HeroSection = () =>{
 
   const [progress, setProgress] = useState(0);
 
-  let headerElems = useRef([null, null, null, null]); // Initialize with nulls for each h2 and h3 element
-
+  let headerElems = useRef([null, null]); // Initialize with nulls for each h2 and h3 element
+  let subHeaderElems = useRef([null, null]);
 
   let timer = null;
   let elems = useRef([]);
@@ -77,19 +77,55 @@ const  HeroSection = () =>{
         },
         "-=0.75"
       )
-      
+
       .play();
-      gsap.fromTo(
-        headerElems.current[state.current],
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, delay: 0.5 }
-      );
-    
-      gsap.fromTo(
-        headerElems.current[state.next],
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, delay: 0.5 }
-      );
+      if(state.current === 0 || state.current === 1){
+        gsap.fromTo(
+            headerElems.current[1],
+            { opacity: 0, y: 0 },
+            { opacity: 0, y: 0}
+          );
+        
+          gsap.fromTo(
+            subHeaderElems.current[1],
+            { opacity: 0, y: 100 },
+            { opacity: 0, y: 0}
+          );
+        gsap.fromTo(
+            headerElems.current[0],
+            { opacity: 0, y: 100 },
+            { opacity: 1, y: 0, duration: 0.5, delay: 0.5}
+          );
+        
+          gsap.fromTo(
+            subHeaderElems.current[0],
+            { opacity: 0, y: 100 },
+            { opacity: 1, y: 0, duration: 0.8, delay: 0.8 }
+          );
+      }else{
+        gsap.fromTo(
+            headerElems.current[0],
+            { opacity: 0, y: 100 },
+            { opacity: 0, y: 0}
+          );
+        
+          gsap.fromTo(
+            subHeaderElems.current[0],
+            { opacity: 0, y: 100 },
+            { opacity: 0, y: 0}
+          );
+        gsap.fromTo(
+            headerElems.current[1],
+            { opacity: 0, y: 100 },
+            { opacity: 1, y: 0, duration: 0.5, delay: 0.5}
+          );
+        
+          gsap.fromTo(
+            subHeaderElems.current[1],
+            { opacity: 0, y: 100 },
+            { opacity: 1, y: 0, duration: 0.8, delay: 0.8 }
+          );
+      }
   };
 
   const handleChange = () => {
@@ -145,7 +181,7 @@ const  HeroSection = () =>{
                     <div className="carousel-slide__caption">
                         <div className="container">
                             <h2 ref={(elem) => (headerElems.current[0] = elem)} className="carousel-slide__caption__subtitle">{gallery[state.current].title}</h2>
-                            <h3  ref={(elem) => (headerElems.current[1] = elem)} className="carousel-slide__caption__title">{gallery[state.current].subtitle1}<br/>{gallery[state.current].subtitle2}</h3>
+                            <h3  ref={(elem) => (subHeaderElems.current[0] = elem)} className="carousel-slide__caption__title">{gallery[state.current].subtitle1}<br/>{gallery[state.current].subtitle2}</h3>
                         </div>
                     </div>
                 </div>
@@ -155,8 +191,8 @@ const  HeroSection = () =>{
                     </div>
                     <div className="carousel-slide__caption">
                         <div className="container">
-                            <h2 ref={(elem) => (headerElems.current[2] = elem)} className="carousel-slide__caption__subtitle">{gallery[state.next].title}</h2>
-                            <h3 ref={(elem) => (headerElems.current[3] = elem)} className="carousel-slide__caption__title">{gallery[state.current].subtitle1}<br/>{gallery[state.current].subtitle2}</h3>
+                            <h2 ref={(elem) => (headerElems.current[1] = elem)} className="carousel-slide__caption__subtitle">{gallery[state.next].title}</h2>
+                            <h3 ref={(elem) => (subHeaderElems.current[1] = elem)} className="carousel-slide__caption__title">{gallery[state.current].subtitle1}<br/>{gallery[state.current].subtitle2}</h3>
                         </div>
                     </div>
                 </div>
