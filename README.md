@@ -19,5 +19,9 @@ The project uses sass for styling the page which is compiled and minified into a
 
 2. components - this folder contains the layout and home folder which contain the Header and heroSection, Quality product section jsx files respectively.
 
+## few issues - 
+
+1. the heroSection main image animation is no as per requirement
+2. the product quality section has a issue with the implementation of the swiperjs hence it is not being displayed as reqiured.
 
 
