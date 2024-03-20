@@ -133,7 +133,7 @@ const  HeroSection = () =>{
   }, [state, progress]);
 
 
-  console.log(state.current)
+ // console.log(state.current)
        
     return (
             <section className="hero">
